@@ -19,15 +19,15 @@
         </tr>
     </thead>
 
-    <tbody>
+    <tbody *ngFor="let funcionario of funcionarios">
         <tr>
             <td> <img src="../../../assets/images/ativo.png" style="height: 20px; width: 20px"  alt="">
-                <img src="../../../assets/images/inativo.png" style="height: 20px; width: 20px"  alt="">
+                <img src="" style="height: 20px; width: 20px"  alt="">
             </td>
        
-            <td>Carlos</td>
-            <td>Eduardo</td>
-            <td>RH</td>
+            <td>{{ funcionario.nome}}</td>
+            <td>{{funcionario.sobrenome}}</td>
+            <td>{{funcionario.departamento}}</td>
             <td>
                 <button>Editar</button>
                 <button>Detalhes</button>
