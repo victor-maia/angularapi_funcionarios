@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { funcionario } from '../../models/funcionarios';
+import { funcionario } from '../../models/Funcionarios'
 import { FuncionarioService } from '../../services/funcionario.service';
 
 @Component({
@@ -31,4 +31,17 @@ export class HomeComponent implements OnInit{
       });
 
   }
+
+  search(event : Event ){
+      const target = event.target as HTMLInputElement
+      const value = target.value.toLowerCase()
+
+      console.log(value)
+
+
+      this.funcionarios  = this.funcionariosGeral.filter(funcionario =>{
+        return funcionario.nome.toLowerCase().includes(value)
+      })
+  }
+
 }

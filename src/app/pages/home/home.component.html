@@ -1,8 +1,8 @@
 <div class="funcionario-box">
-    <button>Cadastrar novo funcionário</button>
+    <button routerLink="/cadastro">Cadastrar novo funcionário</button>
     <div class="input-box">
         <label>Procurar</label>
-        <input type="text" placeholder="Qual registro está buscando?">
+        <input type="text" placeholder="Qual registro está buscando?" (input)="search($event)">
     </div>
 </div>
 
@@ -21,9 +21,12 @@
 
     <tbody *ngFor="let funcionario of funcionarios">
         <tr>
-            <td> <img src="../../../assets/images/ativo.png" style="height: 20px; width: 20px"  alt="">
-                <img src="" style="height: 20px; width: 20px"  alt="">
-            </td>
+            <div *ngIf="funcionario.ativo == true; else inativo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#10f920" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
+              </div>
+              <ng-template #inativo>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ff2b05" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
+              </ng-template>
        
             <td>{{ funcionario.nome}}</td>
             <td>{{funcionario.sobrenome}}</td>
