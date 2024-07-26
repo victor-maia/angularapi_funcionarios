@@ -31,21 +31,19 @@ body {
     color: #333;
   }
   
-  .input-box input,
-  .input-box select {
+  .input-box input {
     padding: 10px;
     border: 1px solid #ced4da;
     border-radius: 5px;
-    background-color: #fff; /* White background for active inputs */
+    background-color: #e9ecef; /* Lighter background for disabled inputs */
+    cursor: not-allowed;
+    box-shadow: none; /* Remove box-shadow from disabled inputs */
     width: 100%; /* Full width of the container */
     box-sizing: border-box; /* Ensure padding is included in the width */
   }
   
-  .input-box input:disabled,
-  .input-box select:disabled {
-    background-color: #e9ecef; /* Lighter background for disabled inputs */
+  .input-box input:disabled {
     color: #495057; /* Text color for disabled input */
-    cursor: not-allowed;
   }
   
   .btn-box {
@@ -75,5 +73,3 @@ body {
   .btn-box button[routerLink]:hover {
     background-color: #5a6268; /* Slightly darker shade of secondary color */
   }
-
-  

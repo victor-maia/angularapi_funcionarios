@@ -11,6 +11,9 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CadastroComponent } from './pages/cadastro/cadastro.component';
 import { FuncionarioFormComponent } from './componentes/funcionario-form/funcionario-form.component';
+import { EditarComponent } from './pages/editar/editar.component';
+import { DetalhesComponent } from './pages/detalhes/detalhes.component';
+import { ExcluirComponent } from './componentes/excluir/excluir.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +21,9 @@ import { FuncionarioFormComponent } from './componentes/funcionario-form/funcion
     HomeComponent,
     CadastroComponent,
     FuncionarioFormComponent,
+    EditarComponent,
+    DetalhesComponent,
+    ExcluirComponent,
   ],
   imports: [
     BrowserModule,

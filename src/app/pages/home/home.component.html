@@ -6,38 +6,38 @@
     </div>
 </div>
 
-
 <table class="table">
     <thead>
         <tr>
-            <th></th>
+            <th>Status</th>
             <th>Nome</th>
             <th>Sobrenome</th>
             <th>Departamento</th>
-            <th></th>
-            <th></th>
+            <th>Ações</th>
         </tr>
     </thead>
 
-    <tbody *ngFor="let funcionario of funcionarios">
-        <tr>
-            <div *ngIf="funcionario.ativo == true; else inativo">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#10f920" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
-              </div>
-              <ng-template #inativo>
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="width: 20px;"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ff2b05" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
-              </ng-template>
-       
-            <td>{{ funcionario.nome}}</td>
-            <td>{{funcionario.sobrenome}}</td>
-            <td>{{funcionario.departamento}}</td>
+    <tbody>
+        <tr *ngFor="let funcionario of funcionarios">
             <td>
-                <button>Editar</button>
-                <button>Detalhes</button>
+                <div *ngIf="funcionario.ativo; else inativo" class="active-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#28a745" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
+                </div>
+                <ng-template #inativo>
+                    <div class="inactive-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#dc3545" d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512z"/></svg>
+                    </div>
+                </ng-template>
             </td>
-
+            <td>{{ funcionario.nome }}</td>
+            <td>{{ funcionario.sobrenome }}</td>
+            <td>{{ funcionario.departamento }}</td>
             <td>
-                <button>Excluir</button>
+                <div class="buttonsControl">
+                    <button routerLink="/editar/{{funcionario.id}}" >Editar</button>
+                    <button routerLink="/detalhes/{{funcionario.id}}">Detalhes</button>
+                    <button routerLink="/excluir/{{funcionario.id}}" class="delete">Excluir</button>
+                </div>
             </td>
         </tr>
     </tbody>

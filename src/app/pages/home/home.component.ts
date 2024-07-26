@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { funcionario } from '../../models/Funcionarios'
 import { FuncionarioService } from '../../services/funcionario.service';
-
+import { ExcluirComponent } from '../../componentes/excluir/excluir.component';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -44,4 +44,5 @@ export class HomeComponent implements OnInit{
       })
   }
 
+  
 }

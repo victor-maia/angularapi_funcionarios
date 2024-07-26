@@ -18,7 +18,23 @@ export class FuncionarioService {
     return this.http.get<Response<funcionario[]>>(this.ApiUrl);
   }
 
+  GetFuncionario(id: number) : Observable<Response<funcionario>> {
+    return this.http.get<Response<funcionario>>(`${this.ApiUrl}/${id}`);
+  }
+
   createFuncionario(funcionario: funcionario) : Observable<Response<funcionario[]>>{
     return this.http.post<Response<funcionario[]>>(`${this.ApiUrl}`, funcionario)
+  }
+
+  EditFuncionario(funcionario : funcionario) : Observable<Response<funcionario[]>> {
+    return this.http.put<Response<funcionario[]>>(`${this.ApiUrl}`, funcionario);
+  }
+
+  InativaFuncionario(id : number) : Observable<Response<funcionario[]>>{
+    return this.http.put<Response<funcionario[]>>(`${this.ApiUrl}/InativaFuncionario/${id}`, id);
+  }
+
+  ExcluirFuncionario(id: number) : Observable<Response<funcionario[]>>{
+    return this.http.delete<Response<funcionario[]>>(`${this.ApiUrl}?id=${id}`)
   }
 }

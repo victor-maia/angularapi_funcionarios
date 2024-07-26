@@ -1,0 +1,10 @@
+<div>
+    <h2>Excluir Funcionário</h2>
+    <p>Tem certeza de que deseja excluir o funcionário {{ funcionario.nome }} {{funcionario.sobrenome}}?</p>
+
+    <div class="buttonDelBox">
+        <button (click)="excluir(funcionario)" class="excluir">Excluir</button>
+        <button (click)="router.navigate(['/'])" class="cancelar">Cancelar</button>
+    </div>
+    
+</div>
